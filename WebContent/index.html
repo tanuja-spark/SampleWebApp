@@ -1,88 +1,234 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Book Store</title>
 
-<!doctype html>
-<html>
-	<head>
-		<title>CSE-AIML</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-		<meta charset="utf-8" />
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		  
-	</head>
+        body {
+            background-color: #f5f5f5;
+        }
 
-	<body>
-		<center><h1>Game of Thrones</h1></center>
-		<hr>
-		<div id="topOfPage">
-			<center><img src="images/GOT.jpg" align="center"></img></center>
-			<p>Game of Thrones is an Indian fantasy drama web series created by David Benioff and D. B. Weiss. It is an adaptation of a Song of Ice and Fire, George R. R. Martin's series of fantasy novels, the first of which is 'A Game of Thrones'!!!</p>
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-			<p><h3>General Plot:</h3> A story of greed, lust, thirst for power, ruthlessness, barbarity - GOT is a story of seven kingdoms vying and sparring over absolute power and control to the Iron Throne.</p>
-			<iframe align = "right" width="400" height="200" src="https://www.youtube.com/embed/522l0YE9hRQ" frameborder="0" allowfullscreen></iframe>
-		</div>
-		<hr>
-		<p><h3>Warring kingdoms:</h3>
-			<ul>
-				<li>Kingdom of the North!</li>
-				<li>Kingdom of the Mountain and the Vale!</li>
-				<li>Kingdom of the Isles and Rivers</li>
-				<li>Kingdom of the Rock</li>
-				<li>Kingdom of the Stormlands</li>
-				<li>Kingdom of the Reach</li>
-				<li>Principality of Dorne</li>
-			</ul>
-		</p>
-		<hr>
-		<center>
-			<ins><h3>Kingdoms with their Lords or rulers and their symbols</h3></ins>
-			<table border="1">
-				<thead>
-					<tr>
-						<th>Kingdom</th>
-						<th>Lords</th>
-						<th>Symbol</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>The North</td>
-						<td>Stark of Winterfell</td>
-						<td align="center"><a href="http://gameofthrones.wikia.com/wiki/Winterfell"><img src="images/HouseStark.png" height="100" width="100"></a></td>
-					</tr>
-					<tr>
-						<td>Kingdom of the Isles and Rivers</td>
-						<td>Harren Hoare</td>
-						<td align="center"><a href="http://gameofthrones.wikia.com/wiki/Harren_Hoare"><img src="images/Harren_Hoare.png" height="100" width="100"></a></td>
-					</tr>
-					<tr>
-						<td>The Vale</td>
-						<td>Arryn of the Eyrie</td>
-						<td align="center"><a href="http://gameofthrones.wikia.com/wiki/House_Arryn"><img src="images/Arryn.png" height="100" width="100"></a></td>
-					</tr>
-					<tr>
-						<td>The Westernlands</td>
-						<td>Lannister of Casterly Rock</td>
-						<td align="center"><a href="http://gameofthrones.wikia.com/wiki/House_Lannister"><img src="images/Lannister.png" height="100" width="100"></a></td>
-					</tr>
-					<tr>
-						<td>The Stormlands</td>
-						<td>Baratheon of Storm's End</td>
-						<td align="center"><a href="http://gameofthrones.wikia.com/wiki/House_Baratheon"><img src="images/Baratheon.png" height="100" width="100"></a></td>
-					</tr>
-					<tr>
-						<td>The Riverlands</td>
-						<td>Tully of Riverrun</td>
-						<td align="center"><a href="http://gameofthrones.wikia.com/wiki/House_Gardener"><img src="images/Gardner.png" height="100" width="100"></a></td>
-					</tr>
-					<tr>
-						<td>Dorne</td>
-						<td>Martell of Sunspear</td>
-						<td align="center"><a href="http://gameofthrones.wikia.com/wiki/House_Martell"><img src="images/Martell.png" height="100" width="100"></a></td>
-					</tr>
-				</tbody>
-			</table>
-		</center>
-		<p>Dedicated to all <strong>Game of Thrones</strong><sup>&reg;</sup> fans</p>
-		<p><a href="#topOfPage">top</a></p>
-	</body>
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #34495e;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        /* Search */
+        .search {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .search input {
+            width: 50%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search button {
+            padding: 12px 20px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Books Section */
+        .books {
+            width: 90%;
+            margin: auto;
+        }
+
+        .books h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .book-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        /* Book Card */
+        .book {
+            background-color: white;
+            width: 220px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .book img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .book h3 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .book p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #e67e22;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .book button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .book button:hover {
+            background-color: #219150;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>📚 Online Book Store</h1>
+        <p>Your favorite books at your fingertips</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Books</a>
+        <a href="#">Categories</a>
+        <a href="#">Cart 🛒</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search">
+        <input type="text" placeholder="Search for books...">
+        <button>Search</button>
+    </div>
+
+    <!-- Books -->
+    <section class="books">
+        <h2>Featured Books</h2>
+
+        <div class="book-container">
+
+            <!-- Book 1 -->
+            <div class="book">
+                <img src="https://via.placeholder.com/150x200?text=Book+1"
+                     alt="Book 1">
+
+                <h3>Atomic Habits</h3>
+                <p>James Clear</p>
+                <div class="price">₹499</div>
+                <button>Add to Cart</button>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book">
+                <img src="https://via.placeholder.com/150x200?text=Book+2"
+                     alt="Book 2">
+
+                <h3>Rich Dad Poor Dad</h3>
+                <p>Robert Kiyosaki</p>
+                <div class="price">₹399</div>
+                <button>Add to Cart</button>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book">
+                <img src="https://via.placeholder.com/150x200?text=Book+3"
+                     alt="Book 3">
+
+                <h3>The Alchemist</h3>
+                <p>Paulo Coelho</p>
+                <div class="price">₹299</div>
+                <button>Add to Cart</button>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book">
+                <img src="https://via.placeholder.com/150x200?text=Book+4"
+                     alt="Book 4">
+
+                <h3>Think Like a Monk</h3>
+                <p>Jay Shetty</p>
+                <div class="price">₹450</div>
+                <button>Add to Cart</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Online Book Store | All Rights Reserved</p>
+    </footer>
+
+</body>
 </html>
+```
